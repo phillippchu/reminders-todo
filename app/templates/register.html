@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}To Do | Register{% endblock %} {%
+block content %}
+<div class="header-bar">
+  <h1>Register</h1>
+</div>
+
+<div class="card-body">
+  <form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.username.label }}{{ form.username() }}<br />
+      {% for error in form.username.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.email.label }}{{ form.email() }}<br />
+      {% for error in form.email.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.password.label }}{{ form.password() }}<br />
+      {% for error in form.password.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.confirm_password.label }}{{ form.confirm_password() }}<br />
+      {% for error in form.confirm_password.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>{{ form.submit(class="button") }}</p>
+  </form>
+  <p>
+    Already have an account? <a href="{{ url_for('auth.login') }}">Log In</a>
+  </p>
+</div>
+{% endblock content %}

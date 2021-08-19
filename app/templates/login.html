@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block title %}To Do | Log In{% endblock %} {% block
+content %}
+<div class="header-bar">
+  <h1>Log In</h1>
+</div>
+
+<div class="card-body">
+  {% include "_flashes.html" %}
+  <form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.email.label }}{{ form.email() }}<br />
+      {% for error in form.email.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.password.label }}{{ form.password() }}<br />
+      {% for error in form.password.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>{{ form.submit(class="button") }}</p>
+  </form>
+  <p>
+    Forgot Password?
+    <a
+      style="color: #31708e"
+      href="{{ url_for('auth.reset_password_request') }}"
+      >Reset Password</a
+    >
+  </p>
+  <p>
+    Don't have an account?
+    <a style="color: #31708e" href="{{ url_for('auth.register') }}">Register</a>
+  </p>
+</div>
+{% endblock content %}

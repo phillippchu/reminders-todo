@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}To Do | {{ title }}{% endblock title
+%} {% block content %}
+<div class="header-bar">
+  <a href="{{ url_for('main.index') }}">&#8592; Back</a>
+</div>
+<div class="card-body">
+  <form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+      {{ form.title.label }}{{ form.title() }}<br />
+      {% for error in form.title.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>
+      {{ form.description.label }}{{ form.description() }}<br />
+      {% for error in form.description.errors %}
+      <span style="color: red">[{{ error }}]</span>
+      {% endfor %}
+    </p>
+    <p>{{ form.complete.label()}} {{ form.complete() }}</p>
+    <p>{{ form.submit(class="button") }}</p>
+  </form>
+</div>
+{% endblock content %}

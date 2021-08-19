@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block content %}
+<div class="header-bar">
+  <h1>Oops. Page Not Found (404)</h1>
+</div>
+
+<div class="card-body">
+  <p>That page does not exist. Please try a different location</p>
+  <p><a href="{{ url_for('main.index') }}">&#8592; Back</a></p>
+</div>
+{% endblock content %}
