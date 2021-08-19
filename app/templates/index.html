@@ -24,7 +24,9 @@ block content %}
     <input type="text" name="search-area" value="{{ user_search }}" />
     <input class="button" type="submit" value="Search" />
   </form>
+  {% if tasks|length > 0 %}
   <a class="add-link" href="{{ url_for('main.create_task') }}">&#x2b;</a>
+  {% endif %}
 </div>
 
 <div class="task-items-wrapper">
@@ -61,7 +63,14 @@ block content %}
     {% endif %}
   </div>
   {% else %}
-  <h3>No items in list</h3>
+  <div style="text-align: center; padding-bottom: 10px; line-height: 1em">
+    <h3>No items in list</h3>
+    <h4>
+      <a class="create-task-button" href="{{ url_for('main.create_task') }}"
+        >Create A New Task</a
+      >
+    </h4>
+  </div>
   {% endfor %}
 </div>
 {% endblock content %}

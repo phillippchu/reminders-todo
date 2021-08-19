@@ -132,3 +132,11 @@ label {
   padding-left: 15px;
   padding-top: 12px;
 }
+
+.create-task-button {
+  padding: 5px;
+  text-decoration: none;
+  color: #5085a5;
+  border-radius: 5px;
+  border: 1px solid #5085a5;
+}
