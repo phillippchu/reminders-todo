@@ -11,7 +11,7 @@ from app.main.forms import TaskForm
 @login_required
 def index():
     tasks = Task.query.filter_by(
-        user_id=current_user.id).order_by(Task.complete).all()
+        user_id=current_user.id).order_by(Task.complete).order_by(Task.date_created.desc()).all()
     incomplete_tasks = Task.query.filter_by(
         user_id=current_user.id).filter_by(complete=False).all()
     user_search = request.args.get("search-area")
